@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Session | JJ Photography Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<a class="logo" href="index.html"><img src="images/jj-logo.png" alt="JJ Photography Studio Logo"></a>
+<nav><a href="index.html">Home</a><a href="gallery.html" class="">Gallery</a><a href="about.html" class="">About</a><a href="packages.html" class="">Packages</a><a href="booking.html" class="active">Book a Session</a><a href="contact.html" class="">Contact</a></nav>
+</header>
+<main>
+
+<section class="soft"><div class="section-heading"><div class="eyebrow">Let's make a memory</div><h2>Book Your Session</h2><div class="small-line"></div><p>Share your details and preferred schedule. We look forward to capturing your special moments.</p></div>
+<form class="booking-form" action="https://formsubmit.co/jjphotographystudio1@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="New JJ Photography Booking Request">
+<div class="form-grid">
+<div class="form-group"><label for="name">Full Name *</label><input id="name" name="Full Name" placeholder="Your name" required></div>
+<div class="form-group"><label for="phone">Contact Number *</label><input id="phone" name="Contact Number" type="tel" placeholder="Your phone number" required></div>
+<div class="form-group full"><label for="email">Email Address *</label><input id="email" name="Email" type="email" placeholder="you@example.com" required></div>
+<div class="form-group"><label for="package">Photography Package *</label><select id="package" name="Package" required><option value="">Choose a package</option><option value="Basic - PHP 500">Basic - ₱500</option><option value="Standard - PHP 1000">Standard - ₱1,000</option><option value="Premium - PHP 2000">Premium - ₱2,000</option></select></div>
+<div class="form-group"><label for="event">Type of Session *</label><select id="event" name="Session Type" required><option value="">Choose session type</option><option>Portrait</option><option>Birthday</option><option>Family</option><option>Graduation</option><option>Nature</option><option>Other</option></select></div>
+<div class="form-group"><label for="date">Preferred Date *</label><input id="date" name="Preferred Date" type="date" required></div>
+<div class="form-group"><label for="time">Preferred Time *</label><input id="time" name="Preferred Time" type="time" required></div>
+<div class="form-group full"><label for="message">Tell Us More</label><textarea id="message" name="Additional Details" placeholder="Describe your event or special requests..."></textarea></div>
+<div class="form-group full"><button class="button" type="submit">SEND BOOKING REQUEST</button></div>
+</div></form><p class="booking-note">Sending this form requests an appointment. Your schedule is confirmed only after we contact you.</p></section>
+<script>
+const dateInput = document.getElementById('date');
+const now = new Date();
+dateInput.min = [now.getFullYear(), String(now.getMonth()+1).padStart(2,'0'), String(now.getDate()).padStart(2,'0')].join('-');
+const chosen = new URLSearchParams(location.search).get('package');
+if (chosen) { const options = [...document.getElementById('package').options]; const match = options.find(o => o.value.startsWith(chosen)); if (match) document.getElementById('package').value = match.value; }
+</script>
+
+</main>
+<footer><div class="footer-logo">JJ Photography Studio</div><p>Capturing the moments that mean the most.</p><p>&copy; 2026 JJ Photography Studio. All rights reserved.</p></footer>
+</body>
+</html>
